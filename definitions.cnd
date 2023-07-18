@@ -1,0 +1,39 @@
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<solidReact = 'http://www.acme.org/solid-template-react/nt/1.0'>
+<solidReactmix = 'http://www.acme.org/solid-template-react/mix/1.0'>
+
+[solidReactmix:solidContent] > jmix:droppableContent, jmix:accessControllableContent mixin
+
+[solidReact:heroSection] > jnt:content, solidReactmix:solidContent, mix:title
+ - jcr:title (string) = 'Landing template for startups' i18n
+ - paragraph (string) = 'Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.' i18n 
+ - button1Text (string) = 'Pre order now' i18n 
+ - button1Link (weakreference) < jnt:page
+ - button2Text (string) = 'Get in touch' i18n 
+ - button2Link (weakreference) < jnt:page
+
+[solidReact:featureSection] > jnt:content, solidReactmix:solidContent
++ * (solidReact:feature)
+
+[solidReact:feature] > jnt:content, mix:title
+ - jcr:title (string) = 'Be Productive' i18n
+ - icon (weakreference, picker[type='image'])
+ - text (string) = 'Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.' i18n
+
+[solidReact:pricingSection] > jnt:content, mix:title, solidReactmix:solidContent
+ - jcr:title (string) = 'Unlimited for all' i18n
+ - text (string) = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ad quis nostrud.' i18n
++ * (solidReact:pricingTier)
+
+[solidReact:pricingTier] > jnt:content
+ - price (string) = '49/month'
+ - featuresTitle (string) = 'What you will get' i18n
+ - feature (string) = 'Lorem ipsum dolor sit nisi' i18n multiple
+ - pricingButtonText (string) = 'Pre order now' i18n
+ - pricingButtonLink (weakreference) < jnt:page
+
+[solidReact:ctaSection] > jnt:content, solidReactmix:solidContent
+ - text (string) = 'Still not convinced on buying?' i18n
+ - ctaButtonText (string) = 'Get in touch' i18n
+ - ctaButtonLink (weakreference) < jnt:page
