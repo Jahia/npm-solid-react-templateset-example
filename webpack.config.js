@@ -2,7 +2,7 @@ const path = require('path');
 const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
 
-module.exports = (env, argv) => {
+module.exports = env => {
     let config = {
         entry: {
             main: path.resolve(__dirname, 'src')
