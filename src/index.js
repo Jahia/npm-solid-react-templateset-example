@@ -1,8 +1,8 @@
 import {registry} from '@jahia/server-helpers';
 import PageHome from './components/page.home';
 import HeroSection from './components/solid/heroSection';
-import FeatureSection from "./components/solid/featureSection";
-import Feature from "./components/solid/feature";
+import FeatureSection from './components/solid/featureSection';
+import Feature from './components/solid/feature';
 
 const reactView = registry.get('view', 'react');
 
