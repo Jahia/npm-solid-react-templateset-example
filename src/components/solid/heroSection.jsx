@@ -1,7 +1,62 @@
 import React from 'react';
-import { render } from '@jahia/server-helpers';
-import { apollo } from '@jahia/helpers';
-import { gql, useQuery } from '@apollo/client'
+import {useQuery, useServerContext} from '@jahia/server-jsx';
+import {gql} from '@apollo/client';
+import {print} from 'graphql';
+
+export default () => {
+    const {currentResource} = useServerContext();
+    const {data, error} = useQuery({
+        query: print(gql`
+                query ($path: String!, $language: String) {
+                    jcr {
+                        nodeByPath(path: $path) {
+                            title: property(name: "jcr:title", language: $language) { value }
+                            paragraph: property(name: "paragraph", language: $language) { value }
+                            button1Text: property(name: "button1Text", language: $language) { value }
+                            button2Text: property(name: "button2Text", language: $language) { value }
+                        }
+                    }
+                }
+            `),
+        variables: {
+            path: currentResource.getNode().getPath(),
+            language: 'en',
+        }
+    });
+
+    return (<>
+        <style jsx>{css}</style>
+        <section className="hero">
+            <div className="container">
+                <div className="hero-inner">
+                    <div className="hero-copy">
+                        <h1 className="hero-title mt-0">{data && data.jcr.nodeByPath.title.value}</h1>
+                        <p className="hero-paragraph">{data && data.jcr.nodeByPath.paragraph.value}</p>
+                        <div className="hero-cta">
+                            <a className="button button-primary">{ data && data.jcr.nodeByPath.button1Text.value}</a>
+                            <a className="button">{data && data.jcr.nodeByPath.button1Text.value}</a>
+                        </div>
+                    </div>
+                    <div className="hero-figure anime-element">
+                        <svg className="placeholder" width="528" height="396" viewBox="0 0 528 396">
+                            <rect width="528" height="396" style={{ fill: "transparent" }} />
+                        </svg>
+                        <div className="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
+                        <div className="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
+                        <div className="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
+                        <div className="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
+                        <div className="hero-figure-box hero-figure-box-05"></div>
+                        <div className="hero-figure-box hero-figure-box-06"></div>
+                        <div className="hero-figure-box hero-figure-box-07"></div>
+                        <div className="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
+                        <div className="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
+                        <div className="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </>)
+}
 
 let css = `
 .hero {
@@ -273,60 +328,4 @@ let css = `
     .hero-figure svg {
         width: auto
     }
-}
-
-`;
-
-export default ({ currentNode, mainNode, currentLocale, user, editMode, currentResource, renderContext }) => {
-
-    const { data, error } = useQuery(gql`
-        query ($path: String!, $language: String) {
-            jcr {
-                nodeByPath(path: $path) {
-                    title: property(name: "jcr:title", language: $language) { value }
-                    paragraph: property(name: "paragraph", language: $language) { value }
-                    button1Text: property(name: "button1Text", language: $language) { value }
-                    button2Text: property(name: "button2Text", language: $language) { value }
-                }
-            }
-        }`, {
-        client: apollo,
-        variables: {
-            path: currentNode.path,
-            language: 'en',
-        }
-    });
-
-    return (<>
-        <style jsx>{css}</style>
-        <section className="hero">
-            <div className="container">
-                <div className="hero-inner">
-                    <div className="hero-copy">
-                        <h1 className="hero-title mt-0">{data && data.jcr.nodeByPath.title.value}</h1>
-                        <p className="hero-paragraph">{data && data.jcr.nodeByPath.paragraph.value}</p>
-                        <div className="hero-cta">
-                            <a className="button button-primary">{ data && data.jcr.nodeByPath.button1Text.value}</a>
-                            <a className="button">{data && data.jcr.nodeByPath.button1Text.value}</a>
-                        </div>
-                    </div>
-                    <div className="hero-figure anime-element">
-                        <svg className="placeholder" width="528" height="396" viewBox="0 0 528 396">
-                            <rect width="528" height="396" style={{ fill: "transparent" }} />
-                        </svg>
-                        <div className="hero-figure-box hero-figure-box-01" data-rotation="45deg"></div>
-                        <div className="hero-figure-box hero-figure-box-02" data-rotation="-45deg"></div>
-                        <div className="hero-figure-box hero-figure-box-03" data-rotation="0deg"></div>
-                        <div className="hero-figure-box hero-figure-box-04" data-rotation="-135deg"></div>
-                        <div className="hero-figure-box hero-figure-box-05"></div>
-                        <div className="hero-figure-box hero-figure-box-06"></div>
-                        <div className="hero-figure-box hero-figure-box-07"></div>
-                        <div className="hero-figure-box hero-figure-box-08" data-rotation="-22deg"></div>
-                        <div className="hero-figure-box hero-figure-box-09" data-rotation="-52deg"></div>
-                        <div className="hero-figure-box hero-figure-box-10" data-rotation="-50deg"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </>)
-}
+}`;

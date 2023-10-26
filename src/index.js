@@ -1,6 +1,8 @@
 import {registry} from '@jahia/server-helpers';
-import PageHome from '../components/jnt/page/page.home';
-import HeroSection from '../components/solidReact/heroSection';
+import PageHome from './components/page.home';
+import HeroSection from './components/solid/heroSection';
+import FeatureSection from "./components/solid/featureSection";
+import Feature from "./components/solid/feature";
 
 const reactView = registry.get('view', 'react');
 
@@ -8,7 +10,6 @@ registry.add('view', 'page_home', reactView, {
     target: 'jnt:page',
     remote: 'npm',
     component: PageHome,
-    htmlRoot: true,
     templateName: 'home',
     templateType: 'html',
     displayName: 'Home React template',
@@ -23,4 +24,20 @@ registry.add('view', 'heroSection', reactView, {
     templateName: 'default',
     templateType: 'html',
     displayName: 'Hero section'
+});
+
+registry.add('view', 'featureSection', reactView, {
+    target: 'solidReact:featureSection',
+    component: FeatureSection,
+    templateName: 'default',
+    templateType: 'html',
+    displayName: 'Feature section'
+});
+
+registry.add('view', 'feature', reactView, {
+    target: 'solidReact:feature',
+    component: Feature,
+    templateName: 'default',
+    templateType: 'html',
+    displayName: 'Feature'
 });
