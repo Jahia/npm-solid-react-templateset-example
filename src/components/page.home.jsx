@@ -1,9 +1,46 @@
 import React, { useState } from 'react';
-import { render } from '@jahia/server-helpers';
-import { apollo } from '@jahia/helpers';
-import { gql, useQuery } from '@apollo/client';
-import Header from './header';
-import Footer from './footer';
+import { useServerContext, JRender } from '@jahia/server-jsx';
+import Header from '../parts/header';
+import Footer from '../parts/footer';
+
+export default ({ currentNode, mainNode, currentLocale, user }) => {
+    const {currentResource, renderContext} = useServerContext();
+
+    const [count, setCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const [navType, setNavType] = useState(1);
+
+    return (<>
+        <head>
+            <meta charset="utf-8"></meta>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+            <title>Solid Template</title>
+            <style jsx>{css}</style>
+            <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet"></link>
+            <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
+            <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+        </head>
+        <body className="is-boxed has-animations">
+            <div className="body-wrap">
+                <Header/>
+
+                <main>
+                    <JRender content={{
+                        name: "pagecontent",
+                        nodeType: "jnt:area"
+                    }}/>
+                </main>
+
+                <Footer/>
+            </div>
+
+            <script src="/modules/npm-solid-react-templateset/javascript/main.min.js"></script>
+        </body>
+
+    </>
+    );
+}
 
 let css = `
 html {
@@ -1655,77 +1692,3 @@ main {
         margin-bottom: 0
     }
 `;
-
-export default ({ currentNode, mainNode, currentLocale, user, editMode, renderContext }) => {
-    const [count, setCount] = useState(0);
-    const [page, setPage] = useState(0);
-    const [navType, setNavType] = useState(1);
-
-    const { data, error } = useQuery(gql`
-        query ($path: String!, $offset: Int, $language: String) {
-            jcr {
-                nodeByPath(path: $path) {
-                    children(offset: $offset, limit: 2) {
-                        nodes {
-                            path
-                            primaryNodeType {
-                                name
-                            }
-                            renderedContent(language: $language) {
-                                output
-                                staticAssets(type: "javascript") {
-                                    key
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }`, {
-        client: apollo,
-        variables: {
-            path: currentNode.path + '/pagecontent',
-            language: 'en',
-            offset: page * 2
-        }
-    });
-
-    return (<>
-        <head>
-            <meta charset="utf-8"></meta>
-            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
-            <title>Solid Template</title>
-            <style jsx>{css}</style>
-            <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet"></link>
-            <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"></script>
-            <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
-        </head>
-        <body className="is-boxed has-animations">
-            <div className="body-wrap">
-                <Header/>
-
-                <main>
-                    {render ?
-                        <div>
-                            <div dangerouslySetInnerHTML={{
-                                __html: render.renderComponent({
-                                    name: "pagecontent",
-                                    primaryNodeType: "jnt:area"
-                                }, renderContext)
-                            }} />
-                        </div> :
-                        <div dangerouslySetInnerHTML={{ __html: '' }} suppressHydrationWarning />
-                    }
-                </main>
-
-                <Footer/>
-
-            </div>
-
-            <script src="/modules/npm-solid-react-templateset/javascript/main.min.js"></script>
-        </body>
-
-    </>
-    );
-}

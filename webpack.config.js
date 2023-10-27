@@ -12,9 +12,9 @@ module.exports = env => {
         },
         externals: {
             '@jahia/server-helpers': 'jahiaHelpers',
-            '@jahia/helpers': 'jahiaHelpers.registry.get(\'module\', \'helpers\').exports',
             react: 'jahiaHelpers.registry.get(\'module\', \'react\').exports',
-            'styled-jsx/style': 'jahiaHelpers.registry.get(\'module\', \'styled-jsx\').exports'
+            'styled-jsx/style': 'jahiaHelpers.registry.get(\'module\', \'styled-jsx\').exports',
+            '@jahia/server-jsx': 'jahiaHelpers.registry.get(\'module\', \'jahia-server-jsx\').exports'
         },
         resolve: {
             mainFields: ['module', 'main'],

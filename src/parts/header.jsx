@@ -1,5 +1,25 @@
 import React from 'react';
 
+export default () => {
+    return (<>
+        <style jsx>{css}</style>
+                <header className="site-header">
+                    <div className="container">
+                        <div className="site-header-inner">
+                            <div className="brand header-brand">
+                                <h1 className="m-0">
+                                    <a href="#">
+                                        <img className="header-logo-image" src="/modules/npm-solid-react-templateset/images/logo.svg" alt="Logo" />
+                                    </a>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+    </>
+    );
+}
+
 let css = `
 .site-header {
     padding: 24px 0
@@ -51,23 +71,3 @@ let css = `
     }
 }
 `;
-
-export default () => {
-    return (<>
-        <style jsx>{css}</style>
-                <header className="site-header">
-                    <div className="container">
-                        <div className="site-header-inner">
-                            <div className="brand header-brand">
-                                <h1 className="m-0">
-                                    <a href="#">
-                                        <img className="header-logo-image" src="/modules/npm-solid-react-templateset/images/logo.svg" alt="Logo" />
-                                    </a>
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-    </>
-    );
-}

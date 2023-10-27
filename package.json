@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=development",
-    "deploy": "jahia-deploy",
+    "deploy": "jahia-deploy pack",
     "watch": "yarn build --env deploy=true --watch",
     "lint": "eslint .",
     "test": "yarn lint"
@@ -36,7 +36,7 @@
     "eslint-plugin-react": "latest",
     "eslint-plugin-react-hooks": "latest",
     "extra-watch-webpack-plugin": "^1.0.3",
-    "styled-jsx": "^4.0.1",
+    "styled-jsx": "^5.1.2",
     "webpack": "^5.64.4",
     "webpack-cli": "^4.9.1",
     "webpack-shell-plugin-next": "^2.3.1"
