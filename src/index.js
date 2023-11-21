@@ -3,6 +3,9 @@ import PageHome from './components/page.home';
 import HeroSection from './components/solid/heroSection';
 import FeatureSection from './components/solid/featureSection';
 import Feature from './components/solid/feature';
+import PricingSection from './components/solid/pricingSection';
+import PricingTier from './components/solid/pricingTier';
+import CtaSection from './components/solid/ctaSection';
 
 const reactView = registry.get('view', 'react');
 
@@ -40,4 +43,28 @@ registry.add('view', 'feature', reactView, {
     templateName: 'default',
     templateType: 'html',
     displayName: 'Feature'
+});
+
+registry.add('view', 'pricingSection', reactView, {
+    target: 'solidReact:pricingSection',
+    component: PricingSection,
+    templateName: 'default',
+    templateType: 'html',
+    displayName: 'Pricing section'
+});
+
+registry.add('view', 'pricingTier', reactView, {
+    target: 'solidReact:pricingTier',
+    component: PricingTier,
+    templateName: 'default',
+    templateType: 'html',
+    displayName: 'Pricing tier'
+});
+
+registry.add('view', 'ctaSection', reactView, {
+    target: 'solidReact:ctaSection',
+    component: CtaSection,
+    templateName: 'default',
+    templateType: 'html',
+    displayName: 'Pricing tier'
 });
