@@ -1,7 +1,7 @@
 import React from 'react';
 import { useServerContext } from '@jahia/server-jsx';
 
-export default () => {
+export const PricingTier = () => {
     const {currentResource} = useServerContext();
 
     const featureValues = currentResource.getNode().getProperty('feature').getValues();
@@ -29,4 +29,10 @@ export default () => {
             </div>
         </div>
     )
+}
+
+PricingTier.jahiaComponent = {
+    id: 'pricingTier',
+    target: 'solidReact:pricingTier',
+    displayName: 'Pricing tier'
 }

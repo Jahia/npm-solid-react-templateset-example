@@ -1,8 +1,7 @@
 import React from 'react';
 import {JRender, JCreateContentButtons, useServerContext} from '@jahia/server-jsx';
 
-
-export default () => {
+export const PricingSection = () => {
     const {currentResource} = useServerContext();
 
     const child = currentResource.getNode().getNodes();
@@ -29,4 +28,10 @@ export default () => {
             </div>
         </section>
     )
+}
+
+PricingSection.jahiaComponent = {
+    id: 'pricingSection',
+    target: 'solidReact:pricingSection',
+    displayName: 'Pricing section'
 }
