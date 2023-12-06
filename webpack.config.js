@@ -74,7 +74,7 @@ module.exports = env => {
     if (env.deploy) {
         config.plugins.push(
             new WebpackShellPluginNext({
-                onDoneWatch: {
+                onAfterDone: {
                     scripts: ['yarn jahia-deploy pack']
                 }
             })
