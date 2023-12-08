@@ -1,7 +1,7 @@
 import React from 'react';
 import {JRender, JCreateContentButtons, useServerContext} from '@jahia/server-jsx';
 
-export default () => {
+export const FeatureSection = () => {
     const {currentResource} = useServerContext();
 
     const child = currentResource.getNode().getNodes();
@@ -24,4 +24,10 @@ export default () => {
             </div>
         </section>
     )
+}
+
+FeatureSection.jahiaComponent = {
+    id: 'featureSection',
+    target: 'solidReact:featureSection',
+    displayName: 'Feature section'
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useServerContext} from '@jahia/server-jsx';
 
-export default () => {
+export const CtaSection = () => {
     const {currentResource} = useServerContext();
     return (
         <section className="cta section">
@@ -15,4 +15,10 @@ export default () => {
         </div>
     </section>
     );
+}
+
+CtaSection.jahiaComponent = {
+    id: 'ctaSection',
+    target: 'solidReact:ctaSection',
+    displayName: 'Pricing tier'
 }

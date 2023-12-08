@@ -3,7 +3,7 @@ import {useQuery, useServerContext} from '@jahia/server-jsx';
 import {gql} from '@apollo/client';
 import {print} from 'graphql';
 
-export default () => {
+export const HeroSection = () => {
     const {currentResource} = useServerContext();
     const {data, error} = useQuery({
         query: print(gql`
@@ -56,6 +56,12 @@ export default () => {
             </div>
         </section>
     </>)
+}
+
+HeroSection.jahiaComponent = {
+    id: 'heroSection',
+    target: 'solidReact:heroSection',
+    displayName: 'Hero section'
 }
 
 let css = `

@@ -3,7 +3,7 @@ import { useServerContext, JRender } from '@jahia/server-jsx';
 import Header from '../parts/header';
 import Footer from '../parts/footer';
 
-export default ({ currentNode, mainNode, currentLocale, user }) => {
+export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
     const {currentResource, renderContext} = useServerContext();
 
     const [count, setCount] = useState(0);
@@ -12,8 +12,6 @@ export default ({ currentNode, mainNode, currentLocale, user }) => {
 
     return (<>
         <head>
-            <meta charset="utf-8"></meta>
-            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
             <title>Solid Template</title>
             <style jsx>{css}</style>
@@ -40,6 +38,16 @@ export default ({ currentNode, mainNode, currentLocale, user }) => {
 
     </>
     );
+}
+
+PageHome.jahiaComponent = {
+    id: 'page_home',
+    target: 'jnt:page',
+    templateName: 'home',
+    displayName: 'Home React template',
+    properties: {
+        template: 'true'
+    }
 }
 
 let css = `

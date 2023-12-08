@@ -1,7 +1,7 @@
 import React from 'react';
 import {useServerContext} from '@jahia/server-jsx';
 
-export default () => {
+export const Feature = () => {
     const {currentResource} = useServerContext();
     return (
         <div className="feature text-center is-revealing">
@@ -16,4 +16,10 @@ export default () => {
             </div>
         </div>
     )
+}
+
+Feature.jahiaComponent = {
+    id: 'feature',
+    target: 'solidReact:feature',
+    displayName: 'Feature'
 }
