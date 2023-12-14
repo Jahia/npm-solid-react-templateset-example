@@ -1,0 +1,40 @@
+{
+  "content1": {
+    "name": "richtext-ex1",
+    "parent": "pagecontent",
+    "nodeType": "jnt:bigText",
+    "i18nProperties": {
+      "en": {
+        "text": "This is an example (1)"
+      },
+      "fr": {
+        "text": "Ceci est un exemple (1)"
+      }
+    }
+  },
+  "content2": {
+    "name": "richtext-ex2",
+    "parent": "pagecontent",
+    "nodeType": "jnt:bigText",
+    "i18nProperties": {
+      "en": {
+        "text": "<div style='display:flex; align-items:center;'><img src='/modules/npm-solid-react-templateset/images/logo.svg'/><span>This is an example (2)</span><img src='/modules/npm-solid-react-templateset/images/logo.svg'/></div>"
+      },
+      "fr": {
+        "text": "Ceci est un exemple (2)"
+      }
+    }
+  },
+  "content3": {
+    "parent": "pagecontent",
+    "nodeType": "jnt:bigText",
+    "i18nProperties": {
+      "en": {
+        "text": "This is an example with no fixed name (will always be here) (3)"
+      },
+      "fr": {
+        "text": "Ceci est un exemple (3)"
+      }
+    }
+  }
+}

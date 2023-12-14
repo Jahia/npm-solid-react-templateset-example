@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useServerContext, JRender } from '@jahia/server-jsx';
 import Header from '../parts/header';
 import Footer from '../parts/footer';
+import {content1, content2, content3} from './contents.json';
 
 export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
     const {currentResource, renderContext} = useServerContext();
@@ -24,6 +25,9 @@ export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
                 <Header/>
 
                 <main>
+                    <JRender advanceRenderingConfig="PLACEHOLDER_NODE" content={content1}/>
+                    <JRender advanceRenderingConfig="PLACEHOLDER_NODE" content={content2}/>
+                    <JRender advanceRenderingConfig="PLACEHOLDER_NODE" content={content3}/>
                     <JRender content={{
                         name: "pagecontent",
                         nodeType: "jnt:area"
