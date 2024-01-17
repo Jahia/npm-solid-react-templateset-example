@@ -11,10 +11,9 @@ module.exports = env => {
             path: path.resolve(__dirname, 'dist')
         },
         externals: {
-            '@jahia/server-helpers': 'jahiaHelpers',
-            react: 'jahiaHelpers.registry.get(\'module\', \'react\').exports',
-            'styled-jsx/style': 'jahiaHelpers.registry.get(\'module\', \'styled-jsx\').exports',
-            '@jahia/server-jsx': 'jahiaHelpers.registry.get(\'module\', \'jahia-server-jsx\').exports'
+            '@jahia/js-server-engine': 'jsServerEngineLibraryBuilder.getLibrary()',
+            react: 'jsServerEngineLibraryBuilder.getSharedLibrary(\'react\')',
+            'styled-jsx/style': 'jsServerEngineLibraryBuilder.getSharedLibrary(\'styled-jsx\')'
         },
         resolve: {
             mainFields: ['module', 'main'],

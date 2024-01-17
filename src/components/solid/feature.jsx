@@ -1,18 +1,19 @@
 import React from 'react';
-import {useServerContext} from '@jahia/server-jsx';
+import {useServerContext, getNodeProps, jUrl} from '@jahia/js-server-engine';
 
 export const Feature = () => {
-    const {currentResource} = useServerContext();
+    const {currentNode} = useServerContext();
+    const props = getNodeProps(currentNode, ['icon', 'title', 'text']);
     return (
         <div className="feature text-center is-revealing">
             <div className="feature-inner">
                 <div className="feature-icon">
-                    {currentResource.getNode().hasProperty('icon') &&
-                        <img srcSet={currentResource.getNode().getProperty('icon').getNode().getUrl()} alt="Feature"/>
+                    {props.icon &&
+                        <img srcSet={jUrl({path:props.icon.getPath()})} alt="Feature"/>
                     }
                 </div>
-                <h4 className="feature-title mt-24">{currentResource.getNode().getPropertyAsString('title')}</h4>
-                <p className="text-sm mb-0">{currentResource.getNode().getPropertyAsString('text')}</p>
+                <h4 className="feature-title mt-24">{props.title}</h4>
+                <p className="text-sm mb-0">{props.text}</p>
             </div>
         </div>
     )
@@ -20,6 +21,7 @@ export const Feature = () => {
 
 Feature.jahiaComponent = {
     id: 'feature',
-    target: 'solidReact:feature',
-    displayName: 'Feature'
+    nodeType: 'solidReact:feature',
+    displayName: 'Feature',
+    componentType: 'view'
 }

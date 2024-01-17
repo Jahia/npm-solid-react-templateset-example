@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
-import { useServerContext, JRender } from '@jahia/server-jsx';
+import React from 'react';
+import { JArea } from '@jahia/js-server-engine';
 import Header from '../parts/header';
 import Footer from '../parts/footer';
 
 export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
-    const {currentResource, renderContext} = useServerContext();
-
-    const [count, setCount] = useState(0);
-    const [page, setPage] = useState(0);
-    const [navType, setNavType] = useState(1);
 
     return (<>
         <head>
@@ -24,10 +19,7 @@ export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
                 <Header/>
 
                 <main>
-                    <JRender content={{
-                        name: "pagecontent",
-                        nodeType: "jnt:area"
-                    }}/>
+                    <JArea name={'pagecontent'} />
                 </main>
 
                 <Footer/>
@@ -42,12 +34,10 @@ export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
 
 PageHome.jahiaComponent = {
     id: 'page_home',
-    target: 'jnt:page',
-    templateName: 'home',
+    nodeType: 'jnt:page',
+    name: 'home',
     displayName: 'Home React template',
-    properties: {
-        template: 'true'
-    }
+    componentType: 'template'
 }
 
 let css = `

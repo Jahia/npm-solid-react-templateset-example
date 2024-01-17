@@ -1,29 +1,25 @@
 import React from 'react';
-import {JRender, JCreateContentButtons, useServerContext} from '@jahia/server-jsx';
+import {JRender, JAddContentButtons, useServerContext, getChildNodes, getNodeProps} from '@jahia/js-server-engine';
 
 export const PricingSection = () => {
-    const {currentResource} = useServerContext();
-
-    const child = currentResource.getNode().getNodes();
-    const childPaths = [];
-    while(child.hasNext()) {
-        childPaths.push(child.next().getPath());
-    }
+    const {currentNode} = useServerContext();
+    const allChildren = getChildNodes(currentNode);
+    const props = getNodeProps(currentNode, ['title', 'paragraph']);
 
     return (
         <section className="pricing section">
             <div className="container-sm">
                 <div className="pricing-inner section-inner">
                     <div className="pricing-header text-center">
-                        <h2 className="section-title mt-0">Unlimited for all</h2>
-                        <p className="section-paragraph mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ad quis nostrud.</p>
+                        <h2 className="section-title mt-0">{props.title}</h2>
+                        <p className="section-paragraph mb-0">{props.paragraph}</p>
                     </div>
                     <div className="pricing-tables-wrap">
-                        {childPaths.map(function(childPath, i) {
-                            return <JRender path={childPath} key={i} />;
+                        {allChildren && allChildren.map(function(child, i) {
+                            return <JRender path={child.getPath()} key={child.getIdentifier()} />;
                         })}
                     </div>
-                    <JCreateContentButtons />
+                    <JAddContentButtons />
                 </div>
             </div>
         </section>
@@ -32,6 +28,7 @@ export const PricingSection = () => {
 
 PricingSection.jahiaComponent = {
     id: 'pricingSection',
-    target: 'solidReact:pricingSection',
-    displayName: 'Pricing section'
+    nodeType: 'solidReact:pricingSection',
+    displayName: 'Pricing section',
+    componentType: 'view'
 }
