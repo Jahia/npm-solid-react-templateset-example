@@ -1,28 +1,9 @@
 import React from 'react';
-import {useQuery, useServerContext} from '@jahia/server-jsx';
-import {gql} from '@apollo/client';
-import {print} from 'graphql';
+import {useServerContext, getNodeProps, jUrl} from '@jahia/js-server-engine';
 
 export const HeroSection = () => {
-    const {currentResource} = useServerContext();
-    const {data, error} = useQuery({
-        query: print(gql`
-                query ($path: String!, $language: String) {
-                    jcr {
-                        nodeByPath(path: $path) {
-                            title: property(name: "jcr:title", language: $language) { value }
-                            paragraph: property(name: "paragraph", language: $language) { value }
-                            button1Text: property(name: "button1Text", language: $language) { value }
-                            button2Text: property(name: "button2Text", language: $language) { value }
-                        }
-                    }
-                }
-            `),
-        variables: {
-            path: currentResource.getNode().getPath(),
-            language: 'en',
-        }
-    });
+    const {currentNode} = useServerContext();
+    const props = getNodeProps(currentNode, ['title', 'paragraph', 'button1Text', 'button1Link', 'button2Text', 'button2Link']);
 
     return (<>
         <style jsx>{css}</style>
@@ -30,11 +11,11 @@ export const HeroSection = () => {
             <div className="container">
                 <div className="hero-inner">
                     <div className="hero-copy">
-                        <h1 className="hero-title mt-0">{data && data.jcr.nodeByPath.title.value}</h1>
-                        <p className="hero-paragraph">{data && data.jcr.nodeByPath.paragraph.value}</p>
+                        <h1 className="hero-title mt-0">{props.title}</h1>
+                        <p className="hero-paragraph">{props.paragraph}</p>
                         <div className="hero-cta">
-                            <a className="button button-primary">{ data && data.jcr.nodeByPath.button1Text.value}</a>
-                            <a className="button">{data && data.jcr.nodeByPath.button1Text.value}</a>
+                            <a className="button button-primary" href={props.button1Link ? jUrl({path:props.button1Link.getPath()}) : '#'}>{ props.button1Text }</a>
+                            <a className="button" href={props.button2Link ? jUrl({path:props.button2Link.getPath()}) : '#'}>{props.button2Text}</a>
                         </div>
                     </div>
                     <div className="hero-figure anime-element">
@@ -60,8 +41,9 @@ export const HeroSection = () => {
 
 HeroSection.jahiaComponent = {
     id: 'heroSection',
-    target: 'solidReact:heroSection',
-    displayName: 'Hero section'
+    nodeType: 'solidReact:heroSection',
+    displayName: 'Hero section',
+    componentType: 'view'
 }
 
 let css = `

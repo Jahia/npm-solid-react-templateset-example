@@ -1,25 +1,19 @@
 import React from 'react';
-import {JRender, JCreateContentButtons, useServerContext} from '@jahia/server-jsx';
+import {JRender, JAddContentButtons, useServerContext, getChildNodes} from '@jahia/js-server-engine';
 
 export const FeatureSection = () => {
-    const {currentResource} = useServerContext();
-
-    const child = currentResource.getNode().getNodes();
-    const childPaths = [];
-    while (child.hasNext()) {
-        childPaths.push(child.next().getPath());
-    }
-
+    const {currentNode} = useServerContext();
+    const allChildren = getChildNodes(currentNode);
     return (
         <section className="features section">
             <div className="container">
                 <div className="features-inner section-inner has-bottom-divider">
                     <div className="features-wrap">
-                        {childPaths.map(function(childPath, i){
-                            return <JRender path={childPath} key={i} />;
+                        {allChildren && allChildren.map(function(child, i){
+                            return <JRender path={child.getPath()} key={child.getIdentifier()} />;
                         })}
                     </div>
-                    <JCreateContentButtons />
+                    <JAddContentButtons />
                 </div>
             </div>
         </section>
@@ -28,6 +22,7 @@ export const FeatureSection = () => {
 
 FeatureSection.jahiaComponent = {
     id: 'featureSection',
-    target: 'solidReact:featureSection',
-    displayName: 'Feature section'
+    nodeType: 'solidReact:featureSection',
+    displayName: 'Feature section',
+    componentType: 'view'
 }

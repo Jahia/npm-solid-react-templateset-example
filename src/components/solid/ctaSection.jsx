@@ -1,15 +1,16 @@
 import React from 'react';
-import {useServerContext} from '@jahia/server-jsx';
+import {useServerContext, getNodeProps, jUrl } from '@jahia/js-server-engine';
 
 export const CtaSection = () => {
-    const {currentResource} = useServerContext();
+    const {currentNode} = useServerContext();
+    const props = getNodeProps(currentNode, ['text', 'ctaButtonLink', 'ctaButtonText']);
     return (
         <section className="cta section">
         <div className="container">
             <div className="cta-inner section-inner">
-                <h3 className="section-title mt-0">{currentResource.getNode().getPropertyAsString('text')}</h3>
+                <h3 className="section-title mt-0">{props.text}</h3>
                 <div className="cta-cta">
-                    <a className="button button-primary button-wide-mobile" href={currentResource.getNode().getProperty('ctaButtonLink').getNode().getUrl()}>{currentResource.getNode().getPropertyAsString('ctaButtonText')}</a>
+                    <a className="button button-primary button-wide-mobile" href={props.ctaButtonLink ? jUrl({path: props.ctaButtonLink.getPath()}) : '#'}>{props.ctaButtonText}</a>
                 </div>
             </div>
         </div>
@@ -19,6 +20,7 @@ export const CtaSection = () => {
 
 CtaSection.jahiaComponent = {
     id: 'ctaSection',
-    target: 'solidReact:ctaSection',
-    displayName: 'Pricing tier'
+    nodeType: 'solidReact:ctaSection',
+    displayName: 'Pricing tier',
+    componentType: 'view'
 }
