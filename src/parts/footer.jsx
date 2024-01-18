@@ -1,6 +1,10 @@
 import React from 'react';
+import {useServerContext, jUrl} from '@jahia/js-server-engine';
 
 export default () => {
+    const {renderContext} = useServerContext();
+    const modulePath = renderContext.getURLGenerator().getCurrentModule();
+
     return (<>
         <style jsx>{css}</style>
                 <footer className="site-footer">
@@ -8,7 +12,7 @@ export default () => {
                         <div className="site-footer-inner">
                             <div className="brand footer-brand">
                                 <a href="#">
-                                    <img className="header-logo-image" src="/modules/npm-solid-react-templateset/images/logo.svg" alt="Logo" />
+                                    <img className="header-logo-image" src={jUrl({value: modulePath + '/images/logo.svg'})} alt="Logo" />
                                 </a>
                             </div>
                             <ul className="footer-links list-reset">

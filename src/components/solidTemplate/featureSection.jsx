@@ -22,7 +22,7 @@ export const FeatureSection = () => {
 
 FeatureSection.jahiaComponent = {
     id: 'featureSection',
-    nodeType: 'solidReact:featureSection',
+    nodeType: 'solidTemplate:featureSection',
     displayName: 'Feature section',
     componentType: 'view'
 }

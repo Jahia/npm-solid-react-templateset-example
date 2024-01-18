@@ -20,7 +20,7 @@ export const CtaSection = () => {
 
 CtaSection.jahiaComponent = {
     id: 'ctaSection',
-    nodeType: 'solidReact:ctaSection',
+    nodeType: 'solidTemplate:ctaSection',
     displayName: 'Pricing tier',
     componentType: 'view'
 }

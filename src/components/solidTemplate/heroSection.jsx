@@ -41,7 +41,7 @@ export const HeroSection = () => {
 
 HeroSection.jahiaComponent = {
     id: 'heroSection',
-    nodeType: 'solidReact:heroSection',
+    nodeType: 'solidTemplate:heroSection',
     displayName: 'Hero section',
     componentType: 'view'
 }

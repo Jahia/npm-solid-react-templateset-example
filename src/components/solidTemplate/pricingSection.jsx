@@ -4,7 +4,7 @@ import {JRender, JAddContentButtons, useServerContext, getChildNodes, getNodePro
 export const PricingSection = () => {
     const {currentNode} = useServerContext();
     const allChildren = getChildNodes(currentNode);
-    const props = getNodeProps(currentNode, ['title', 'paragraph']);
+    const props = getNodeProps(currentNode, ['title', 'text']);
 
     return (
         <section className="pricing section">
@@ -12,7 +12,7 @@ export const PricingSection = () => {
                 <div className="pricing-inner section-inner">
                     <div className="pricing-header text-center">
                         <h2 className="section-title mt-0">{props.title}</h2>
-                        <p className="section-paragraph mb-0">{props.paragraph}</p>
+                        <p className="section-paragraph mb-0">{props.text}</p>
                     </div>
                     <div className="pricing-tables-wrap">
                         {allChildren && allChildren.map(function(child, i) {
@@ -28,7 +28,7 @@ export const PricingSection = () => {
 
 PricingSection.jahiaComponent = {
     id: 'pricingSection',
-    nodeType: 'solidReact:pricingSection',
+    nodeType: 'solidTemplate:pricingSection',
     displayName: 'Pricing section',
     componentType: 'view'
 }
