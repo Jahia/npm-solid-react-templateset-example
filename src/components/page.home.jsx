@@ -1,9 +1,11 @@
 import React from 'react';
-import { JArea } from '@jahia/js-server-engine';
+import { JArea, useServerContext, jUrl } from '@jahia/js-server-engine';
 import Header from '../parts/header';
 import Footer from '../parts/footer';
 
 export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
+    const {renderContext} = useServerContext();
+    const modulePath = renderContext.getURLGenerator().getCurrentModule();
 
     return (<>
         <head>
@@ -25,8 +27,8 @@ export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
                 <Footer/>
             </div>
 
-            <script src="/modules/npm-solid-react-templateset/javascript/main.min.js"></script>
-        </body>
+            <script src={jUrl({value: modulePath + "/javascript/main.min.js"})}></script>
+         </body>
 
     </>
     );

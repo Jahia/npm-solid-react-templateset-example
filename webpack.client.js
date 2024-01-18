@@ -57,7 +57,7 @@ module.exports = env => {
                 filename: '../javascript/remote.js',
                 exposes: {
                     page_home: './components/jnt/page/page.home',
-                    heroSection: './components/solidReact/heroSection'
+                    heroSection: './components/solidTemplate/heroSection'
                 },
                 remotes: {
                     '@jahia/helpers': 'reactAppShell'

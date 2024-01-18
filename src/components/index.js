@@ -1,2 +1,2 @@
-export * from './solid';
+export * from './solidTemplate';
 export * from './page.home';
