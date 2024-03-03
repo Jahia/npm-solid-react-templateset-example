@@ -1,7 +1,7 @@
 import React from 'react';
 import { JArea, useServerContext, jUrl } from '@jahia/js-server-engine';
-import Header from '../parts/header';
-import Footer from '../parts/footer';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
     const {renderContext} = useServerContext();
@@ -35,7 +35,6 @@ export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
 }
 
 PageHome.jahiaComponent = {
-    id: 'page_home',
     nodeType: 'jnt:page',
     name: 'home',
     displayName: 'Home React template',
