@@ -1,19 +1,19 @@
 import React from 'react';
-import {JRender, JAddContentButtons, useServerContext, getChildNodes} from '@jahia/js-server-engine';
+import {Render, AddContentButtons, useServerContext, getChildNodes} from '@jahia/js-server-engine';
 
 export const FeatureSection = () => {
     const {currentNode} = useServerContext();
-    const allChildren = getChildNodes(currentNode);
+    const allChildren = getChildNodes(currentNode, -1);
     return (
         <section className="features section">
             <div className="container">
                 <div className="features-inner section-inner has-bottom-divider">
                     <div className="features-wrap">
                         {allChildren && allChildren.map(function(child, i){
-                            return <JRender path={child.getPath()} key={child.getIdentifier()} />;
+                            return <Render path={child.getPath()} key={child.getIdentifier()} />;
                         })}
                     </div>
-                    <JAddContentButtons />
+                    <AddContentButtons />
                 </div>
             </div>
         </section>

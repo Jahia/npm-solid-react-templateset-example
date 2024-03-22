@@ -1,8 +1,8 @@
 import React from 'react';
-import {useServerContext, getNodeProps, jUrl } from '@jahia/js-server-engine';
+import {useServerContext, getNodeProps, buildUrl } from '@jahia/js-server-engine';
 
 export const CtaSection = () => {
-    const {currentNode} = useServerContext();
+    const {currentNode, renderContext, currentResource} = useServerContext();
     const props = getNodeProps(currentNode, ['text', 'ctaButtonLink', 'ctaButtonText']);
     return (
         <section className="cta section">
@@ -10,7 +10,7 @@ export const CtaSection = () => {
             <div className="cta-inner section-inner">
                 <h3 className="section-title mt-0">{props.text}</h3>
                 <div className="cta-cta">
-                    <a className="button button-primary button-wide-mobile" href={props.ctaButtonLink ? jUrl({path: props.ctaButtonLink.getPath()}) : '#'}>{props.ctaButtonText}</a>
+                    <a className="button button-primary button-wide-mobile" href={props.ctaButtonLink ? buildUrl({path: props.ctaButtonLink.getPath()}, renderContext, currentResource) : '#'}>{props.ctaButtonText}</a>
                 </div>
             </div>
         </div>

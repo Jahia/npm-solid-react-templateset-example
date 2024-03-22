@@ -1,9 +1,9 @@
 import React from 'react';
-import {JRender, JAddContentButtons, useServerContext, getChildNodes, getNodeProps} from '@jahia/js-server-engine';
+import {Render, AddContentButtons, useServerContext, getChildNodes, getNodeProps} from '@jahia/js-server-engine';
 
 export const PricingSection = () => {
     const {currentNode} = useServerContext();
-    const allChildren = getChildNodes(currentNode);
+    const allChildren = getChildNodes(currentNode, -1);
     const props = getNodeProps(currentNode, ['title', 'text']);
 
     return (
@@ -16,10 +16,10 @@ export const PricingSection = () => {
                     </div>
                     <div className="pricing-tables-wrap">
                         {allChildren && allChildren.map(function(child, i) {
-                            return <JRender path={child.getPath()} key={child.getIdentifier()} />;
+                            return <Render path={child.getPath()} key={child.getIdentifier()} />;
                         })}
                     </div>
-                    <JAddContentButtons />
+                    <AddContentButtons />
                 </div>
             </div>
         </section>
