@@ -30,7 +30,6 @@ export const PricingTier = () => {
 }
 
 PricingTier.jahiaComponent = {
-    id: 'pricingTier',
     nodeType: 'solidTemplate:pricingTier',
     displayName: 'Pricing tier',
     componentType: 'view'

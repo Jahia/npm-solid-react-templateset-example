@@ -27,7 +27,6 @@ export const PricingSection = () => {
 }
 
 PricingSection.jahiaComponent = {
-    id: 'pricingSection',
     nodeType: 'solidTemplate:pricingSection',
     displayName: 'Pricing section',
     componentType: 'view'

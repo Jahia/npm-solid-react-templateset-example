@@ -19,8 +19,7 @@ export const CtaSection = () => {
 }
 
 CtaSection.jahiaComponent = {
-    id: 'ctaSection',
     nodeType: 'solidTemplate:ctaSection',
-    displayName: 'Pricing tier',
+    displayName: 'Call to action section',
     componentType: 'view'
 }

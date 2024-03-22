@@ -20,7 +20,6 @@ export const Feature = () => {
 }
 
 Feature.jahiaComponent = {
-    id: 'feature',
     nodeType: 'solidTemplate:feature',
     displayName: 'Feature',
     componentType: 'view'
