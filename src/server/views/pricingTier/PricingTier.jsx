@@ -1,8 +1,8 @@
 import React from 'react';
-import { useServerContext, getNodeProps, jUrl } from '@jahia/js-server-engine';
+import { useServerContext, getNodeProps, buildUrl } from '@jahia/js-server-engine';
 
 export const PricingTier = () => {
-    const {currentNode} = useServerContext();
+    const {currentNode,renderContext,currentResource} = useServerContext();
     const props = getNodeProps(currentNode, ['featuresTitle', 'feature', 'price', 'pricingButtonText', 'pricingButtonLink']);
     
     return (
@@ -22,7 +22,7 @@ export const PricingTier = () => {
                     </ul>
                 </div>
                 <div className="pricing-table-cta mb-8">
-                    <a className="button button-primary button-shadow button-block" href={props.pricingButtonLink ? jUrl({path:props.pricingButtonLink.getPath()}) : '#'}>{props.pricingButtonText}</a>
+                    <a className="button button-primary button-shadow button-block" href={props.pricingButtonLink ? buildUrl({path:props.pricingButtonLink.getPath()},renderContext,currentResource) : '#'}>{props.pricingButtonText}</a>
                 </div>
             </div>
         </div>

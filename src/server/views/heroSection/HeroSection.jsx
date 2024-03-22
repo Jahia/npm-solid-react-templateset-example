@@ -1,8 +1,8 @@
 import React from 'react';
-import {useServerContext, getNodeProps, jUrl} from '@jahia/js-server-engine';
+import {useServerContext, getNodeProps, buildUrl} from '@jahia/js-server-engine';
 
 export const HeroSection = () => {
-    const {currentNode} = useServerContext();
+    const {currentNode,renderContext,currentResource} = useServerContext();
     const props = getNodeProps(currentNode, ['title', 'paragraph', 'button1Text', 'button1Link', 'button2Text', 'button2Link']);
 
     return (<>
@@ -14,8 +14,8 @@ export const HeroSection = () => {
                         <h1 className="hero-title mt-0">{props.title}</h1>
                         <p className="hero-paragraph">{props.paragraph}</p>
                         <div className="hero-cta">
-                            <a className="button button-primary" href={props.button1Link ? jUrl({path:props.button1Link.getPath()}) : '#'}>{ props.button1Text }</a>
-                            <a className="button" href={props.button2Link ? jUrl({path:props.button2Link.getPath()}) : '#'}>{props.button2Text}</a>
+                            <a className="button button-primary" href={props.button1Link ? buildUrl({path:props.button1Link.getPath()},renderContext,currentResource) : '#'}>{ props.button1Text }</a>
+                            <a className="button" href={props.button2Link ? buildUrl({path:props.button2Link.getPath()},renderContext,currentResource) : '#'}>{props.button2Text}</a>
                         </div>
                     </div>
                     <div className="hero-figure anime-element">

@@ -1,8 +1,8 @@
 import React from 'react';
-import {useServerContext, jUrl} from '@jahia/js-server-engine';
+import {useServerContext, buildUrl} from '@jahia/js-server-engine';
 
 export default () => {
-    const {renderContext} = useServerContext();
+    const {renderContext, currentResource} = useServerContext();
     const modulePath = renderContext.getURLGenerator().getCurrentModule();
 
 return (<>
@@ -13,7 +13,7 @@ return (<>
                             <div className="brand header-brand">
                                 <h1 className="m-0">
                                     <a href="#">
-                                        <img className="header-logo-image" src={jUrl({value: modulePath + '/images/logo.svg'})} alt="Logo" />
+                                        <img className="header-logo-image" src={buildUrl({value: modulePath + '/images/logo.svg'}, renderContext, currentResource)} alt="Logo" />
                                     </a>
                                 </h1>
                             </div>

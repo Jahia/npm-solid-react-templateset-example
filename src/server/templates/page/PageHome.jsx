@@ -1,10 +1,10 @@
 import React from 'react';
-import { JArea, useServerContext, jUrl } from '@jahia/js-server-engine';
+import { Area, useServerContext, buildUrl } from '@jahia/js-server-engine';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
 export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
-    const {renderContext} = useServerContext();
+    const {renderContext, currentResource} = useServerContext();
     const modulePath = renderContext.getURLGenerator().getCurrentModule();
 
     return (<>
@@ -21,13 +21,13 @@ export const PageHome = ({ currentNode, mainNode, currentLocale, user }) => {
                 <Header/>
 
                 <main>
-                    <JArea name={'pagecontent'} />
+                    <Area name={'pagecontent'} />
                 </main>
 
                 <Footer/>
             </div>
 
-            <script src={jUrl({value: modulePath + "/javascript/main.min.js"})}></script>
+            <script src={buildUrl({value: modulePath + "/javascript/main.min.js"}, renderContext, currentResource)}></script>
          </body>
 
     </>
