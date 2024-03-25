@@ -1,7 +1,7 @@
 import React from 'react';
 import {useServerContext, getNodeProps, buildUrl } from '@jahia/js-server-engine';
 
-export const CtaSection = () => {
+export const CtaSectionDefault = () => {
     const {currentNode, renderContext, currentResource} = useServerContext();
     const props = getNodeProps(currentNode, ['text', 'ctaButtonLink', 'ctaButtonText']);
     return (
@@ -18,7 +18,7 @@ export const CtaSection = () => {
     );
 }
 
-CtaSection.jahiaComponent = {
+CtaSectionDefault.jahiaComponent = {
     nodeType: 'solidTemplate:ctaSection',
     displayName: 'Call to action section',
     componentType: 'view'

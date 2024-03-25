@@ -1,11 +1,16 @@
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
-<solidTemplate = 'http://www.acme.org/solid-template-react/nt/1.0'>
-<solidTemplatemix = 'http://www.acme.org/solid-template-react/mix/1.0'>
+<solidTemplate = 'http://www.acme.org/solid-template/nt/1.0'>
+<solidTemplatemix = 'http://www.acme.org/solid-template/mix/1.0'>
 
-[solidTemplatemix:solidContent] > jmix:droppableContent, jmix:accessControllableContent mixin
+// This mixin creates a category to regroup types in the content type selector UI. Apply it to any definition you want
+// to see in this category.
+[solidTemplatemix:solidTemplateComponents] > jmix:droppableContent, jmix:accessControllableContent mixin
 
-[solidTemplate:heroSection] > jnt:content, solidTemplatemix:solidContent
+[solidTemplate:hello] > jnt:content, solidTemplatemix:solidTemplateComponents
+ - textHello (string) = 'Hello world !' i18n
+
+[solidTemplate:heroSection] > jnt:content, solidTemplatemix:solidTemplateComponents
  - title (string) = 'Landing template for startups' i18n
  - paragraph (string) = 'Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.' i18n 
  - button1Text (string) = 'Pre order now' i18n 
@@ -13,27 +18,27 @@
  - button2Text (string) = 'Get in touch' i18n 
  - button2Link (weakreference) < jnt:page
 
-[solidTemplate:featureSection] > jnt:content, solidTemplatemix:solidContent
+[solidTemplate:featureSection] > jnt:content, solidTemplatemix:solidTemplateComponents
 + * (solidTemplate:feature)
 
-[solidTemplate:feature] > jnt:content
+[solidTemplate:feature] 
  - title (string) = 'Be Productive' i18n
  - icon (weakreference, picker[type='image'])
  - text (string) = 'Fermentum posuere urna nec tincidunt praesent semper feugiat nibh. A arcu cursus vitae congue mauris. Nam at lectus urna duis convallis. Mauris rhoncus aenean vel elit scelerisque mauris.' i18n
 
-[solidTemplate:pricingSection] > jnt:content, solidTemplatemix:solidContent
+[solidTemplate:pricingSection] > jnt:content, solidTemplatemix:solidTemplateComponents
  - title (string) = 'Unlimited for all' i18n
  - text (string) = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ad quis nostrud.' i18n
 + * (solidTemplate:pricingTier)
 
-[solidTemplate:pricingTier] > jnt:content
+[solidTemplate:pricingTier]
  - price (string) = '49/month'
  - featuresTitle (string) = 'What you will get' i18n
  - feature (string) = 'Lorem ipsum dolor sit nisi' i18n multiple
  - pricingButtonText (string) = 'Pre order now' i18n
  - pricingButtonLink (weakreference) < jnt:page
 
-[solidTemplate:ctaSection] > jnt:content, solidTemplatemix:solidContent
+[solidTemplate:ctaSection] > jnt:content, solidTemplatemix:solidTemplateComponents
  - text (string) = 'Still not convinced on buying?' i18n
  - ctaButtonText (string) = 'Get in touch' i18n
  - ctaButtonLink (weakreference) < jnt:page

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useServerContext, getNodeProps, buildUrl } from '@jahia/js-server-engine';
 
-export const PricingTier = () => {
-    const {currentNode,renderContext,currentResource} = useServerContext();
+export const PricingTierDefault = () => {
+    const {currentNode, renderContext, currentResource} = useServerContext();
     const props = getNodeProps(currentNode, ['featuresTitle', 'feature', 'price', 'pricingButtonText', 'pricingButtonLink']);
     
     return (
@@ -22,14 +22,14 @@ export const PricingTier = () => {
                     </ul>
                 </div>
                 <div className="pricing-table-cta mb-8">
-                    <a className="button button-primary button-shadow button-block" href={props.pricingButtonLink ? buildUrl({path:props.pricingButtonLink.getPath()},renderContext,currentResource) : '#'}>{props.pricingButtonText}</a>
+                    <a className="button button-primary button-shadow button-block" href={props.pricingButtonLink ? buildUrl({path:props.pricingButtonLink.getPath()}, renderContext, currentResource) : '#'}>{props.pricingButtonText}</a>
                 </div>
             </div>
         </div>
     )
 }
 
-PricingTier.jahiaComponent = {
+PricingTierDefault.jahiaComponent = {
     nodeType: 'solidTemplate:pricingTier',
     displayName: 'Pricing tier',
     componentType: 'view'

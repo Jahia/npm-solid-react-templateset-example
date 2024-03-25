@@ -1,17 +1,17 @@
 import React from 'react';
-import {Render, AddContentButtons, useServerContext, getChildNodes} from '@jahia/js-server-engine';
+import { Render, AddContentButtons, useServerContext, getChildNodes } from '@jahia/js-server-engine';
 
-export const FeatureSection = () => {
-    const {currentNode} = useServerContext();
+export const FeatureSectionDefault = () => {
+    const { currentNode } = useServerContext();
     const allChildren = getChildNodes(currentNode, -1);
     return (
         <section className="features section">
             <div className="container">
                 <div className="features-inner section-inner has-bottom-divider">
                     <div className="features-wrap">
-                        {allChildren && allChildren.map(function(child, i){
-                            return <Render path={child.getPath()} key={child.getIdentifier()} />;
-                        })}
+                        {allChildren && allChildren.map(child => 
+                            <Render path={child.getPath()} key={child.getIdentifier()} />
+                        )}
                     </div>
                     <AddContentButtons />
                 </div>
@@ -20,8 +20,9 @@ export const FeatureSection = () => {
     )
 }
 
-FeatureSection.jahiaComponent = {
+FeatureSectionDefault.jahiaComponent = {
     nodeType: 'solidTemplate:featureSection',
     displayName: 'Feature section',
     componentType: 'view'
 }
+

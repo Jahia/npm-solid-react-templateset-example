@@ -1,4 +1,5 @@
 module.exports = {
+    root: true,
     env: {
         browser: true,
         es2021: true
@@ -22,8 +23,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    ignorePatterns: ['dist', '*.min.js', 'javascript'],
+    ignorePatterns: ['dist', 'css', 'javascript'],
     rules: {
-        camelcase: ['error', {allow: ['page_home']}]
     }
 };
