@@ -1,1 +1,1 @@
-export * from './page/PageHome';
+export * from './page';

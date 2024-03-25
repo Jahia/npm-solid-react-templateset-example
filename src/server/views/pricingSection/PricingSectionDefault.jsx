@@ -1,10 +1,10 @@
 import React from 'react';
 import {Render, AddContentButtons, useServerContext, getChildNodes, getNodeProps} from '@jahia/js-server-engine';
 
-export const PricingSection = () => {
+export const PricingSectionDefault = () => {
     const {currentNode} = useServerContext();
     const allChildren = getChildNodes(currentNode, -1);
-    const props = getNodeProps(currentNode, ['title', 'text']);
+    const props = getNodeProps(currentNode, ['title', 'paragraph']);
 
     return (
         <section className="pricing section">
@@ -12,12 +12,12 @@ export const PricingSection = () => {
                 <div className="pricing-inner section-inner">
                     <div className="pricing-header text-center">
                         <h2 className="section-title mt-0">{props.title}</h2>
-                        <p className="section-paragraph mb-0">{props.text}</p>
+                        <p className="section-paragraph mb-0">{props.paragraph}</p>
                     </div>
                     <div className="pricing-tables-wrap">
-                        {allChildren && allChildren.map(function(child, i) {
-                            return <Render path={child.getPath()} key={child.getIdentifier()} />;
-                        })}
+                        {allChildren && allChildren.map((child) =>
+                            <Render path={child.getPath()} key={child.getIdentifier()} />
+                        )}
                     </div>
                     <AddContentButtons />
                 </div>
@@ -26,7 +26,7 @@ export const PricingSection = () => {
     )
 }
 
-PricingSection.jahiaComponent = {
+PricingSectionDefault.jahiaComponent = {
     nodeType: 'solidTemplate:pricingSection',
     displayName: 'Pricing section',
     componentType: 'view'

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useServerContext, getNodeProps, buildUrl} from '@jahia/js-server-engine';
 
-export const Feature = () => {
-    const {currentNode,renderContext,currentResource} = useServerContext();
+export const FeatureDefault = () => {
+    const {currentNode, renderContext, currentResource} = useServerContext();
     const props = getNodeProps(currentNode, ['icon', 'title', 'text']);
     return (
         <div className="feature text-center is-revealing">
@@ -19,7 +19,7 @@ export const Feature = () => {
     )
 }
 
-Feature.jahiaComponent = {
+FeatureDefault.jahiaComponent = {
     nodeType: 'solidTemplate:feature',
     displayName: 'Feature',
     componentType: 'view'

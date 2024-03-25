@@ -1,2 +1,1 @@
-export * from './footer';
-export * from './header';
+// Export here any components that were added to this directory
