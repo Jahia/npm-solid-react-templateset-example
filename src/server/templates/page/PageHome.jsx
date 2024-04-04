@@ -1,5 +1,5 @@
 import React from 'react';
-import {AddResources, buildUrl, useServerContext, Area} from '@jahia/js-server-engine';
+import {AddResources, buildUrl, useServerContext, Area} from '@jahia/js-server-core';
 
 export const PageHome = () => {
     const {renderContext, currentResource} = useServerContext();
