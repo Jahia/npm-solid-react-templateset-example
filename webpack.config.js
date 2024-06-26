@@ -154,7 +154,6 @@ module.exports = env => {
         if (!config.plugins) {
             config.plugins = [];
         }
-
         config.plugins.push(webpackShellPlugin);
     }
 
