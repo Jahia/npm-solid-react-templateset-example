@@ -1,5 +1,5 @@
 import React from 'react';
-import {useServerContext, getNodeProps, buildUrl} from '@jahia/js-server-core';
+import {useServerContext, getNodeProps, buildUrl, defineJahiaComponent} from '@jahia/js-server-core';
 
 export const FeatureDefault = () => {
     const {currentNode, renderContext, currentResource} = useServerContext();
@@ -19,8 +19,9 @@ export const FeatureDefault = () => {
     )
 }
 
-FeatureDefault.jahiaComponent = {
+FeatureDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:feature',
     displayName: 'Feature',
+    name: 'Feature',
     componentType: 'view'
-}
+});

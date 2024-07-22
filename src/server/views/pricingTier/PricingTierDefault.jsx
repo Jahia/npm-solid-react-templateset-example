@@ -1,5 +1,5 @@
 import React from 'react';
-import { useServerContext, getNodeProps, buildUrl } from '@jahia/js-server-core';
+import {useServerContext, getNodeProps, buildUrl, defineJahiaComponent} from '@jahia/js-server-core';
 
 export const PricingTierDefault = () => {
     const {currentNode, renderContext, currentResource} = useServerContext();
@@ -29,8 +29,8 @@ export const PricingTierDefault = () => {
     )
 }
 
-PricingTierDefault.jahiaComponent = {
+PricingTierDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:pricingTier',
     displayName: 'Pricing tier',
     componentType: 'view'
-}
+});
