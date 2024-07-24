@@ -36,5 +36,6 @@ export const PricingSectionDefault = () => {
 PricingSectionDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:pricingSection',
     displayName: 'Pricing section',
-    componentType: 'view'
+    componentType: 'view',
+    name: 'default',
 });

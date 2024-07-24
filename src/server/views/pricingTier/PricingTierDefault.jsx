@@ -32,5 +32,6 @@ export const PricingTierDefault = () => {
 PricingTierDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:pricingTier',
     displayName: 'Pricing tier',
-    componentType: 'view'
+    componentType: 'view',
+    name: 'default',
 });

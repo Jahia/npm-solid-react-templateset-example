@@ -22,6 +22,6 @@ export const FeatureDefault = () => {
 FeatureDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:feature',
     displayName: 'Feature',
-    name: 'Feature',
+    name: 'default',
     componentType: 'view'
 });

@@ -23,7 +23,7 @@ export const FeatureSectionDefault = () => {
 FeatureSectionDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:featureSection',
     displayName: 'Feature section',
-    name: 'Feature-section',
+    name: 'default',
     componentType: 'view'
 });
 
