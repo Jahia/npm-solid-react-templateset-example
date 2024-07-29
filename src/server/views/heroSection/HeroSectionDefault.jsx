@@ -73,6 +73,7 @@ export const HeroSectionDefault = () => {
 HeroSectionDefault.jahiaComponent = defineJahiaComponent({ // this object is used to register the view in Jahia
   nodeType: 'solidTemplate:heroSection', // The content node type the template applies to
   displayName: 'Hero Section', // The display name of the view
+  name: 'default',
   componentType: 'view' // the component type is set to view (as opposed to template component types)
 });
 
