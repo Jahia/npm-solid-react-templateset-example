@@ -1,5 +1,5 @@
 import React from 'react';
-import { Render, AddContentButtons, useServerContext, getChildNodes } from '@jahia/js-server-core';
+import {Render, AddContentButtons, useServerContext, getChildNodes, defineJahiaComponent} from '@jahia/js-server-core';
 
 export const FeatureSectionDefault = () => {
     const { currentNode } = useServerContext();
@@ -9,7 +9,7 @@ export const FeatureSectionDefault = () => {
             <div className="container">
                 <div className="features-inner section-inner has-bottom-divider">
                     <div className="features-wrap">
-                        {allChildren && allChildren.map(child => 
+                        {allChildren && allChildren.map(child =>
                             <Render path={child.getPath()} key={child.getIdentifier()} />
                         )}
                     </div>
@@ -20,9 +20,10 @@ export const FeatureSectionDefault = () => {
     )
 }
 
-FeatureSectionDefault.jahiaComponent = {
+FeatureSectionDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:featureSection',
     displayName: 'Feature section',
+    name: 'default',
     componentType: 'view'
-}
+});
 

@@ -1,5 +1,12 @@
 import React from 'react';
-import {Render, AddContentButtons, useServerContext, getChildNodes, getNodeProps} from '@jahia/js-server-core';
+import {
+    Render,
+    AddContentButtons,
+    useServerContext,
+    getChildNodes,
+    getNodeProps,
+    defineJahiaComponent
+} from '@jahia/js-server-core';
 
 export const PricingSectionDefault = () => {
     const {currentNode} = useServerContext();
@@ -26,8 +33,9 @@ export const PricingSectionDefault = () => {
     )
 }
 
-PricingSectionDefault.jahiaComponent = {
+PricingSectionDefault.jahiaComponent = defineJahiaComponent({
     nodeType: 'solidTemplate:pricingSection',
     displayName: 'Pricing section',
-    componentType: 'view'
-}
+    componentType: 'view',
+    name: 'default',
+});
