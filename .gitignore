@@ -1,4 +1,5 @@
 # Intellij
+.env
 .idea
 *.iml
 *.ipr
