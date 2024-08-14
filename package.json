@@ -1,6 +1,6 @@
 {
   "name": "solid-template",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -12,14 +12,26 @@
     "test": "yarn lint"
   },
   "jahia": {
+    "required-version": "8.2.0.0-SNAPSHOT",
     "module-dependencies": "default",
     "module-type": "templatesSet",
     "server": "dist/main.js",
-    "static-resources": "/css,/images,/javascript,/locales"
+    "static-resources": "/css,/images,/javascript,/locales",
+    "maven": {
+      "groupId": "org.jahia.modules.npm",
+      "distributionManagement": {
+        "repository": {
+          "id": "jahia-releases",
+          "url": "https://devtools.jahia.com/nexus/content/repositories/jahia-releases"
+        },
+        "snapshotRepository": {
+          "id": "jahia-snapshots",
+          "url": "https://devtools.jahia.com/nexus/content/repositories/jahia-snapshots"
+        }
+      }
+    }
   },
   "dependencies": {
-    "@apollo/client": "3.5.5",
-    "@jahia/data-helper": "1.0.4",
     "@jahia/js-server-core": "^0.0.12",
     "graphql": "^16.7.1",
     "react": "^18.2.0",
