@@ -21,10 +21,10 @@ yarn-error.log
 
 .env
 .DS_Store
-javascript/vendors*.js
-javascript/*_jsx.js
-javascript/remote.js
-javascript/_yarn*
-javascript/client/remote.js
+public/javascript/vendors*.js
+public/javascript/*_jsx.js
+public/javascript/remote.js
+public/javascript/_yarn*
+public/javascript/client/remote.js
 solid-template-v*
 npm-solid-react-templateset-v*

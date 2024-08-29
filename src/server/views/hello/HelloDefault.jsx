@@ -7,6 +7,9 @@ export const HelloDefault = () => {
     return (
         <div>
             <h2>{props.textHello}</h2>
+            <p>Blblbl</p>
+
+
         </div>
     )
 }

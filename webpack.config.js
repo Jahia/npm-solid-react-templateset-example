@@ -27,7 +27,7 @@ module.exports = (env, mode) => {
                 [moduleName]: path.resolve(__dirname, './src/client/index')
             },
             output: {
-                path: path.resolve(__dirname, 'javascript/client')
+                path: path.resolve(__dirname, 'public/javascript/client')
             },
             resolve: {
                 mainFields: ['module', 'main'],
@@ -88,7 +88,7 @@ module.exports = (env, mode) => {
                 react: 'jsServerCoreLibraryBuilder.getSharedLibrary(\'react\')',
                 'react-i18next': 'jsServerCoreLibraryBuilder.getSharedLibrary(\'react-i18next\')',
                 i18next: 'jsServerCoreLibraryBuilder.getSharedLibrary(\'i18next\')',
-                'styled-jsx/style': 'jsServerCoreLibraryBuilder.getSharedLibrary(\'styled-jsx\')',
+                'styled-jsx/style': 'jsServerCoreLibraryBuilder.getSharedLibrary(\'styled-jsx\')'
             },
             resolve: {
                 mainFields: ['module', 'main'],
@@ -142,7 +142,7 @@ module.exports = (env, mode) => {
         configs.push({
             name: 'watch',
             mode: 'development',
-            dependencies: ['client', 'server'], // wait for all webpack configs to be done
+            dependencies: ['client', 'server'], // Wait for all webpack configs to be done
             entry: {},
             output: {},
             plugins: [
@@ -168,13 +168,13 @@ module.exports = (env, mode) => {
                         scripts: [
                             'yarn jahia-pack',
                             'yarn jahia-deploy',
-                            'sleep 5', // sleep for 5 seconds, can be adjusted
+                            'sleep 5' // Sleep for 5 seconds, can be adjusted
                         ],
                         blocking: true,
                         parallel: false
                     }
                 })
-            ],
+            ]
         });
     }
 
