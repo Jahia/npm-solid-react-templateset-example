@@ -6,26 +6,25 @@ export const PageHome = () => {
     const modulePath = renderContext.getURLGenerator().getCurrentModule();
     return (<>
         <head>
-            <meta charSet="utf-8"/>
-            <meta
-                content="IE=edge"
-                httpEquiv="X-UA-Compatible"
-            />
-            <meta
-                content="width=device-width, initial-scale=1"
-                name="viewport"
-            />
-            <title>
-                Solid Template
-            </title>
-            <link
-                href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600"
-                rel="stylesheet"
-            />
-            <AddResources type='css' resources='style.css'/>
-            <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js"/>
-            <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"/>
-            <style jsx>{css}</style>
+    <meta charSet="utf-8" />
+    <meta
+      content="IE=edge"
+      httpEquiv="X-UA-Compatible"
+    />
+    <meta
+      content="width=device-width, initial-scale=1"
+      name="viewport"
+    />
+    <title>
+      Solid Template
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600"
+      rel="stylesheet"
+    />
+    <AddResources type='css' resources='style.css'/>
+    <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js" />
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js" />
         </head>
         <body className="is-boxed has-animations">
             <div className="body-wrap">
@@ -154,10 +153,3 @@ PageHome.jahiaComponent = defineJahiaComponent({ // This object is used to regis
     displayName: 'Home page', // The display name of the page template
     componentType: 'template' // the component type is set to template (as opposed to view component types)
 });
-
-let css = `
-.kevan {
-    : 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
-}`;
