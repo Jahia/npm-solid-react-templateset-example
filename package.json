@@ -16,7 +16,7 @@
     "module-dependencies": "default",
     "module-type": "templatesSet",
     "server": "dist/main.js",
-    "static-resources": "/css,/images,/javascript,/locales",
+    "static-resources": "/css,/images,/javascript,/locales,/icons",
     "maven": {
       "groupId": "org.jahia.modules.npm",
       "distributionManagement": {
