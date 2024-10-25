@@ -1,9 +1,8 @@
 import React from 'react';
-import {AddResources, buildUrl, useServerContext, Area, defineJahiaComponent} from '@jahia/js-server-core';
+import {AddResources, Area, defineJahiaComponent, useUrlBuilder} from '@jahia/js-server-core';
 
 export const PageHome = () => {
-    const {renderContext, currentResource} = useServerContext();
-    const modulePath = renderContext.getURLGenerator().getCurrentModule();
+    const {buildStaticUrl} = useUrlBuilder();
     return (<>
         <head>
     <meta charSet="utf-8" />
@@ -22,7 +21,7 @@ export const PageHome = () => {
       href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600"
       rel="stylesheet"
     />
-    <AddResources type='css' resources='style.css'/>
+    <AddResources type='css' resources={buildStaticUrl({assetPath: 'css/style.css'})}/>
     <script src="https://unpkg.com/animejs@3.0.1/lib/anime.min.js" />
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js" />
         </head>
@@ -37,7 +36,7 @@ export const PageHome = () => {
                   <img
                     alt="Logo"
                     className="header-logo-image"
-                    src={buildUrl({ value: modulePath + '/images/logo.svg'}, renderContext, currentResource)}
+                    src={buildStaticUrl({assetPath: 'images/logo.svg'})}
                   />
                 </a>
               </h1>
@@ -56,7 +55,7 @@ export const PageHome = () => {
                 <img
                   alt="Logo"
                   className="header-logo-image"
-                  src={buildUrl({ value: modulePath + '/images/logo.svg'}, renderContext, currentResource)}
+                  src={buildStaticUrl({assetPath: 'images/logo.svg'})}
                 />
               </a>
             </div>
@@ -142,7 +141,7 @@ export const PageHome = () => {
         </div>
       </footer>
             </div>
-    <AddResources type={'javascript'} resources='main.min.js' targetTag='body' />
+    <AddResources type={'javascript'} resources={buildStaticUrl({assetPath: 'javascript/main.min.js'})} targetTag='body' />
          </body>
     </>);
 }
