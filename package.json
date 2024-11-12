@@ -35,7 +35,7 @@
     }
   },
   "dependencies": {
-    "@jahia/js-server-core": "^0.0.16",
+    "@jahia/js-server-core": "^0.0.17",
     "graphql": "^16.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
