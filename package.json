@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --mode=development && jahia-pack",
     "build:production": "webpack --mode=production && jahia-pack",
+    "clean": "rm -rf dist/",
     "deploy": "jahia-deploy",
     "watch": "webpack --mode=development --watch",
     "lint": "eslint .",
@@ -16,8 +17,8 @@
     "required-version": "8.2.0.0-SNAPSHOT",
     "module-dependencies": "default",
     "module-type": "templatesSet",
-    "server": "dist/main.js",
-    "static-resources": "/css,/images,/javascript,/locales,/icons",
+    "server": "main.js",
+    "static-resources": "/javascript",
     "maven": {
       "groupId": "org.jahia.modules.npm",
       "distributionManagement": {
@@ -33,7 +34,7 @@
     }
   },
   "dependencies": {
-    "@jahia/js-server-core": "^0.0.15",
+    "@jahia/js-server-core": "^0.0.16",
     "graphql": "^16.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -44,7 +45,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@jahia/eslint-config": "^2.1.2",
-    "@jahia/scripts": "^1.3.3",
+    "@jahia/scripts": "^1.3.6",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^10.0.0",
