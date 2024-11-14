@@ -1613,9 +1613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jahia/js-server-core@npm:^0.0.16":
-  version: 0.0.16
-  resolution: "@jahia/js-server-core@npm:0.0.16"
+"@jahia/js-server-core@npm:^0.0.17":
+  version: 0.0.17
+  resolution: "@jahia/js-server-core@npm:0.0.17"
   dependencies:
     graphql: "npm:^16.0.1"
     graphql-tag: "npm:^2.12.6"
@@ -1623,7 +1623,7 @@ __metadata:
     prop-types: "npm:^15.8.1"
     react: "npm:^18.2.0"
     react-i18next: "npm:^14.1.0"
-  checksum: 10c0/c45b3d8651483a8b007c593664756e8a91336bb38a65b260e549dcc09fbf82ff5aaae17e526300ce60f33a129d05f92ea00a67fc0e5b85acaa1ac29ee6257d0a
+  checksum: 10c0/150625f6fffe1128ebcc3bdd15b6ff56883fa6eb992b85aa04fddf5d444a2330858cefab02e32a98e5a97e4947b353364545b90c0fb105b5b6289c5d531d813b
   languageName: node
   linkType: hard
 
@@ -7304,7 +7304,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.16.4"
     "@babel/preset-react": "npm:^7.16.0"
     "@jahia/eslint-config": "npm:^2.1.2"
-    "@jahia/js-server-core": "npm:^0.0.16"
+    "@jahia/js-server-core": "npm:^0.0.17"
     "@jahia/scripts": "npm:^1.3.6"
     babel-loader: "npm:^8.2.3"
     babel-plugin-transform-react-remove-prop-types: "npm:^0.4.24"
