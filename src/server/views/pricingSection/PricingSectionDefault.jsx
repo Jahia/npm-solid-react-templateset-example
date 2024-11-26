@@ -6,7 +6,7 @@ import {
     getChildNodes,
     getNodeProps,
     defineJahiaComponent
-} from '@jahia/js-server-core';
+} from '@jahia/javascript-modules-library';
 
 export const PricingSectionDefault = () => {
     const {currentNode} = useServerContext();
