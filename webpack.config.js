@@ -118,11 +118,11 @@ module.exports = (env, argv) => {
             },
             externals: {
                 // Those libraries are supplied to webpack at runtime (by the npm-module-engine project), and are not packaged in the output bundle
-                '@jahia/javascript-modules-library': 'jsServerCoreLibraryBuilder.getLibrary()',
-                react: 'jsServerCoreLibraryBuilder.getSharedLibrary(\'react\')',
-                'react-i18next': 'jsServerCoreLibraryBuilder.getSharedLibrary(\'react-i18next\')',
-                i18next: 'jsServerCoreLibraryBuilder.getSharedLibrary(\'i18next\')',
-                'styled-jsx/style': 'jsServerCoreLibraryBuilder.getSharedLibrary(\'styled-jsx\')'
+                '@jahia/javascript-modules-library': 'javascriptModulesLibraryBuilder.getLibrary()',
+                react: 'javascriptModulesLibraryBuilder.getSharedLibrary(\'react\')',
+                'react-i18next': 'javascriptModulesLibraryBuilder.getSharedLibrary(\'react-i18next\')',
+                i18next: 'javascriptModulesLibraryBuilder.getSharedLibrary(\'i18next\')',
+                'styled-jsx/style': 'javascriptModulesLibraryBuilder.getSharedLibrary(\'styled-jsx\')'
             },
             resolve: {
                 mainFields: ['module', 'main'],
