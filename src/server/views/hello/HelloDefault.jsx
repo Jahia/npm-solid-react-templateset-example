@@ -1,5 +1,5 @@
 import React from 'react'
-import {useServerContext, getNodeProps, defineJahiaComponent} from '@jahia/js-server-core'
+import {useServerContext, getNodeProps, defineJahiaComponent} from '@jahia/javascript-modules-library'
 
 export const HelloDefault = () => {
     const { currentNode } = useServerContext();

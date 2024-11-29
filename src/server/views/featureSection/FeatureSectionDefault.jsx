@@ -1,5 +1,5 @@
 import React from 'react';
-import {Render, AddContentButtons, useServerContext, getChildNodes, defineJahiaComponent} from '@jahia/js-server-core';
+import {Render, AddContentButtons, useServerContext, getChildNodes, defineJahiaComponent} from '@jahia/javascript-modules-library';
 
 export const FeatureSectionDefault = () => {
     const { currentNode } = useServerContext();

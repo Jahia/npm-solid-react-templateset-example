@@ -1,5 +1,5 @@
 import React from 'react';
-import {AddResources, Area, defineJahiaComponent, useUrlBuilder} from '@jahia/js-server-core';
+import {AddResources, Area, defineJahiaComponent, useUrlBuilder} from '@jahia/javascript-modules-library';
 
 export const PageHome = () => {
     const {buildStaticUrl} = useUrlBuilder();

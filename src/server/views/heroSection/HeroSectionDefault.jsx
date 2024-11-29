@@ -1,5 +1,5 @@
 import React from 'react';
-import {useServerContext, buildUrl, getNodeProps, defineJahiaComponent} from '@jahia/js-server-core';
+import {useServerContext, buildUrl, getNodeProps, defineJahiaComponent} from '@jahia/javascript-modules-library';
 
 export const HeroSectionDefault = () => {
     const {currentNode, renderContext, currentResource} = useServerContext();
