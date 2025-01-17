@@ -35,10 +35,7 @@
     }
   },
   "dependencies": {
-    "@jahia/javascript-modules-library": "^0.0.4",
-    "graphql": "^16.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@jahia/javascript-modules-library": "^0.0.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
@@ -57,6 +54,7 @@
     "eslint-plugin-react": "latest",
     "eslint-plugin-react-hooks": "latest",
     "extra-watch-webpack-plugin": "^1.0.3",
+    "react": "18.2.0",
     "styled-jsx": "^5.1.2",
     "terser-webpack-plugin": "^5.3.10",
     "typescript": "^5.3.3",
