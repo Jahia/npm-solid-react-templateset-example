@@ -1,5 +1,5 @@
 # npm-solid-react-templateset-example
-An example of a React NPM templateset build using a publicly available template called Solid
+An example of a React javascript module templateset build using a publicly available template called Solid
 
 ## Original template
 
